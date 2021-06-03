@@ -146,7 +146,17 @@ async def Musik(ctx, arg):
     channel = ctx.author.voice.channel
     vc = await channel.connect()
     vc.play(discord.FFmpegPCMAudio(source="C:\Users\Tino Brinker\Music\Videoprojekte\menu.mp3"))
+    pause.time.deltatime(200)
+     
+@bot.command(pass_context = True)
+async def stop(ctx, arg)
+    vc.channel.disconnect()
 
+
+
+
+
+async def Musik(ctx, arg)
 bot.run("ODA2NTAxMzg1MzkwNjUzNDcw.YBqW8g.7YdmkHrZbYuQ1RsLELGsu_bjIEQ")
 
-# Es wurde der Sv443s-JokeApi-Python-Wrapper verwendet. -> https://github.com/thenamesweretakenalready/Sv443s-JokeAPI-Python-Wrapper#readme-
+# Es wurde der Sv443s-JokeApi-Python-Wrapper verwendet. -> https://github.com/thenamesweretakenalready/Sv443s-JokeAPI-Python-Wrapper#readme
