@@ -145,8 +145,26 @@ async def Musik(ctx, arg):
     author = ctx.message.author
     channel = ctx.author.voice.channel
     vc = await channel.connect()
+<<<<<<< HEAD
     vc.play(discord.FFmpegPCMAudio(source="/root/TEA_Bot/menu.mp3"))
+=======
+    vc.play(discord.FFmpegPCMAudio(source="C:\Users\Tino Brinker\Music\Videoprojekte\menu.mp3"))
+    pause.time.deltatime(200)
+     
+@bot.command(pass_context = True)
+async def stop(ctx, arg)
+    vc.channel.disconnect()
 
+
+
+
+>>>>>>> 84977eb6a8c4d2dd23a52b2dfe5bf7195684a8ec
+
+async def Musik(ctx, arg)
 bot.run("ODA2NTAxMzg1MzkwNjUzNDcw.YBqW8g.7YdmkHrZbYuQ1RsLELGsu_bjIEQ")
 
+<<<<<<< HEAD
 # Es wurde der Sv443s-JokeApi-Python-Wrapper verwendet. -> https://github.com/thenamesweretakenalready/Sv443s-JokeAPI-Python-Wrapper#readme-
+=======
+# Es wurde der Sv443s-JokeApi-Python-Wrapper verwendet. -> https://github.com/thenamesweretakenalready/Sv443s-JokeAPI-Python-Wrapper#readme
+>>>>>>> 84977eb6a8c4d2dd23a52b2dfe5bf7195684a8ec
