@@ -1,3 +1,4 @@
+
 from typing import Text
 import discord
 from discord import message
@@ -18,7 +19,6 @@ from jokeapi import Jokes
 intents = discord.Intents.all()
 
 bot = commands.Bot(command_prefix='!',intents = intents)
-
 
 # class
 
@@ -145,7 +145,7 @@ async def Musik(ctx, arg):
     author = ctx.message.author
     channel = ctx.author.voice.channel
     vc = await channel.connect()
-    vc.play(discord.FFmpegPCMAudio(source="C:\Users\Tino Brinker\Music\Videoprojekte\menu.mp3"))
+    vc.play(discord.FFmpegPCMAudio(source="/root/TEA_Bot/menu.mp3"))
 
 bot.run("ODA2NTAxMzg1MzkwNjUzNDcw.YBqW8g.7YdmkHrZbYuQ1RsLELGsu_bjIEQ")
 
