@@ -133,7 +133,7 @@ async def anmeldungen(ctx):
 @bot.command(pass_context = True)
 async def Witz(ctx):
         j = Jokes()
-        joke = j.get_joke(category=['programming'], blacklist=['nsfw', 'racist'])
+        joke = j.get_joke(category=['any'], blacklist=['nsfw', 'racist'])
         if joke["type"] == "single": 
             await ctx.send (joke["joke"])
         else:
