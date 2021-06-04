@@ -1,3 +1,4 @@
+
 from typing import Text
 import discord
 from discord import message
@@ -18,6 +19,7 @@ from jokeapi import Jokes
 intents = discord.Intents.all()
 
 bot = commands.Bot(command_prefix='!',intents = intents)
+
 
 #Startbestätigung
 @bot.event
@@ -130,7 +132,7 @@ async def anmeldungen(ctx):
 @bot.command(pass_context = True)
 async def Witz(ctx):
         j = Jokes()
-        joke = j.get_joke(category=['programming'], blacklist=['nsfw', 'racist'])
+        joke = j.get_joke(category=['any'], blacklist=['nsfw', 'racist'])
         if joke["type"] == "single": 
             await ctx.send (joke["joke"])
         else:
@@ -144,8 +146,7 @@ async def Musik(ctx, arg):
     author = ctx.message.author
     channel = ctx.author.voice.channel
     vc = await channel.connect()
-    vc.play(discord.FFmpegPCMAudio(source="C:\Users\Tino Brinker\Music\Videoprojekte\menu.mp3"))
-    pause.time.deltatime(200)
+    vc.play(discord.FFmpegPCMAudio(source="/root/TEA_Bot/menu.mp3"))
      
 @bot.command(pass_context = True)
 async def stop(ctx, arg)
@@ -156,4 +157,5 @@ async def stop(ctx, arg)
 
 bot.run("ODA2NTAxMzg1MzkwNjUzNDcw.YBqW8g.7YdmkHrZbYuQ1RsLELGsu_bjIEQ")
 
-# Es wurde der Sv443s-JokeApi-Python-Wrapper verwendet. -> https://github.com/thenamesweretakenalready/Sv443s-JokeAPI-Python-Wrapper#readme
+# Es wurde der Sv443s-JokeApi-Python-Wrapper verwendet. -> https://github.com/thenamesweretakenalready/Sv443s-JokeAPI-Python-Wrapper#readme-
+
