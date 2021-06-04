@@ -132,7 +132,7 @@ async def anmeldungen(ctx):
 @bot.command(pass_context = True)
 async def Witz(ctx):
         j = Jokes()
-        joke = j.get_joke(category=['any'], blacklist=['nsfw', 'racist'])
+        joke = j.get_joke(lang = "de", category=['any'],blacklist=['nsfw', 'racist'])
         if joke["type"] == "single": 
             await ctx.send (joke["joke"])
         else:
@@ -147,12 +147,12 @@ async def Musik(ctx, arg):
     channel = ctx.author.voice.channel
     vc = await channel.connect()
     vc.play(discord.FFmpegPCMAudio(source="/root/TEA_Bot/menu.mp3"))
-     
+
 @bot.command(pass_context = True)
-async def stop(ctx, arg)
+async def stop(ctx, arg):
     author = ctx.message.author
     channel = ctx.author.voice.channel
-    vc.channel.disconnect()
+    channel.disconnect()
 
 
 bot.run("ODA2NTAxMzg1MzkwNjUzNDcw.YBqW8g.7YdmkHrZbYuQ1RsLELGsu_bjIEQ")
