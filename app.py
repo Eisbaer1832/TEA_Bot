@@ -19,9 +19,6 @@ intents = discord.Intents.all()
 
 bot = commands.Bot(command_prefix='!',intents = intents)
 
-
-# class
-
 #Startbestätigung
 @bot.event
 async def on_ready():
@@ -139,7 +136,9 @@ async def Witz(ctx):
         else:
             await ctx.send (joke["setup"])
             await ctx.send (joke["delivery"])
-            
+
+
+#mUSIK MACHEN
 @bot.command(pass_context = True)
 async def Musik(ctx, arg):
     author = ctx.message.author
@@ -150,13 +149,11 @@ async def Musik(ctx, arg):
      
 @bot.command(pass_context = True)
 async def stop(ctx, arg)
+    author = ctx.message.author
+    channel = ctx.author.voice.channel
     vc.channel.disconnect()
 
 
-
-
-
-async def Musik(ctx, arg)
 bot.run("ODA2NTAxMzg1MzkwNjUzNDcw.YBqW8g.7YdmkHrZbYuQ1RsLELGsu_bjIEQ")
 
 # Es wurde der Sv443s-JokeApi-Python-Wrapper verwendet. -> https://github.com/thenamesweretakenalready/Sv443s-JokeAPI-Python-Wrapper#readme
