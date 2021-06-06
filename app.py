@@ -155,6 +155,7 @@ async def stop(ctx, arg):
     channel.disconnect()
 
 
+
 bot.run("ODA2NTAxMzg1MzkwNjUzNDcw.YBqW8g.7YdmkHrZbYuQ1RsLELGsu_bjIEQ")
 
 # Es wurde der Sv443s-JokeApi-Python-Wrapper verwendet. -> https://github.com/thenamesweretakenalready/Sv443s-JokeAPI-Python-Wrapper#readme-
