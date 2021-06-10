@@ -1,4 +1,5 @@
 
+from inspect import ArgInfo
 from typing import Text
 import discord
 from discord import message
@@ -9,16 +10,22 @@ from discord.enums import try_enum
 from discord.ext import commands
 import random
 from discord.utils import get
-from discord.ext.commands import has_permissions, MissingPermissions
+from discord.ext.commands import converter, has_permissions, MissingPermissions
 import os
 import re
 import requests
 import json
 from jokeapi import Jokes
-
+import random
+import pafy
+from discord import FFmpegPCMAudio, PCMVolumeTransformer
+import urllib
 intents = discord.Intents.all()
 
 bot = commands.Bot(command_prefix='!',intents = intents)
+
+
+FFMPEG_OPTIONS = {'before_options': '-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5','options': '-vn'}
 
 
 #Startbestätigung
@@ -141,13 +148,46 @@ async def Witz(ctx):
 
 
 #mUSIK MACHEN
-@bot.command(pass_context = True)
+@bot.command()
 async def Musik(ctx, arg):
-    author = ctx.message.author
-    channel = ctx.author.voice.channel
-    vc = await channel.connect()
-    vc.play(discord.FFmpegPCMAudio(source="/root/TEA_Bot/menu.mp3"))
 
+    search = arg
+    
+    if ctx.message.author.voice == None:
+        await ctx.send ("Du musst in einem Sprachchat sein um den Befehl zu nutzen!")
+        return
+   
+
+    author = ctx.message.author
+
+    channel = ctx.author.voice.channel
+    
+    vc = await channel.connect()
+    
+    voice = discord.utils.get(ctx.guild.voice_channels, name=channel.name)
+        
+    html = urllib.request.urlopen(search)
+    
+    video_ids = re.findall(r"watch\?v=(\S{11})", html.read().decode())
+    
+    embed = discord.Embed(
+        title="Es wird nun ein neues Video gespielt!", 
+        description= arg,
+        colour = discord.Colour.green()
+   )
+        
+    await ctx.send(embed = embed)
+
+    song = pafy.new(video_ids[0])
+
+    audio = song.getbestaudio()
+
+    source = FFmpegPCMAudio(audio.url, **FFMPEG_OPTIONS)
+
+    vc.play(source)
+        
+
+# Musik beenden
 @bot.command(pass_context = True)
 async def stop(ctx, arg):
     author = ctx.message.author
@@ -156,7 +196,23 @@ async def stop(ctx, arg):
 
 
 
+#Ort des Tages
+@bot.command(pass_context = True)
+async def ort(ctx):
+    for x in range (1):
+        x = random.randint(2,9)
+        y = random.randint(2,9)
+        converted_num = str(x)
+        converted_num1 = str(y)
+
+        ort = "https://www.google.de/maps/@"+converted_num+".2634574,"+converted_num1+".7837054"
+        #https://www.google.de/maps/@59.2923265,7.5175231,14z
+        await ctx.send (ort)
 bot.run("ODA2NTAxMzg1MzkwNjUzNDcw.YBqW8g.7YdmkHrZbYuQ1RsLELGsu_bjIEQ")
+
+
+
+
 
 # Es wurde der Sv443s-JokeApi-Python-Wrapper verwendet. -> https://github.com/thenamesweretakenalready/Sv443s-JokeAPI-Python-Wrapper#readme-
 
