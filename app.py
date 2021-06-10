@@ -189,10 +189,8 @@ async def Musik(ctx, arg):
 
 # Musik beenden
 @bot.command(pass_context = True)
-async def stop(ctx, arg):
-    author = ctx.message.author
-    channel = ctx.author.voice.channel
-    channel.disconnect()
+async def stop(ctx):
+    await ctx.guild.voice_client.disconnect()
 
 
 
