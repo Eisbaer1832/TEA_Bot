@@ -165,8 +165,7 @@ async def Musik(ctx, arg, pass_context = True):
     if ctx.message.author.voice == None:
         await ctx.send ("Du musst in einem Sprachchat sein um den Befehl zu nutzen!")
         return
-   
-
+    
     author = ctx.message.author
 
     channel = ctx.author.voice.channel
@@ -194,7 +193,8 @@ async def Musik(ctx, arg, pass_context = True):
 
     source = FFmpegPCMAudio(audio.url, **FFMPEG_OPTIONS)
 
-    vc.play(source)
+    if bot.channel == None:
+        vc.play(source)
         
 
 # Musik beenden
