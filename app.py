@@ -149,7 +149,7 @@ async def Witz(ctx):
 
 #mUSIK MACHEN
 @bot.command()
-async def Musik(ctx, arg):
+async def Musik(ctx, arg, pass_context = True):
 
     search = arg
     
@@ -176,7 +176,7 @@ async def Musik(ctx, arg):
         colour = discord.Colour.green()
    )
     await ctx.guild.voice_client.disconnect()
-            
+
     await ctx.send(embed = embed)
 
     song = pafy.new(video_ids[0])
