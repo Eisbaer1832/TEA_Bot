@@ -175,8 +175,7 @@ async def Musik(ctx, arg, pass_context = True):
         description= arg,
         colour = discord.Colour.green()
    )
-    await ctx.guild.voice_client.disconnect()
-
+   
     await ctx.send(embed = embed)
 
     song = pafy.new(video_ids[0])
