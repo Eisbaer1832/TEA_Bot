@@ -150,7 +150,7 @@ async def Witz(ctx):
 #mUSIK MACHEN
 @bot.command()
 async def Musik(ctx, arg, pass_context = True):
-
+    await ctx.guild.voice_client.disconnect()
     search = arg
     
     if ctx.message.author.voice == None:
@@ -175,7 +175,7 @@ async def Musik(ctx, arg, pass_context = True):
         description= arg,
         colour = discord.Colour.green()
    )
-    await ctx.guild.voice_client.disconnect()
+
 
     await ctx.send(embed = embed)
 
