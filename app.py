@@ -147,6 +147,15 @@ async def Witz(ctx):
             await ctx.send (joke["delivery"])
 
 
+@bot.command()
+async def komm(ctx):
+    author = ctx.message.author
+    channel = ctx.author.voice.channel
+    await channel.connect()
+
+
+
+
 #mUSIK MACHEN
 @bot.command()
 async def Musik(ctx, arg, pass_context = True):
