@@ -192,8 +192,7 @@ async def Musik(ctx, arg, pass_context = True):
 
     source = FFmpegPCMAudio(audio.url, **FFMPEG_OPTIONS)
 
-    if bot.channel == None:
-        vc.play(source)
+    vc.play(source)
         
 
 # Musik beenden
