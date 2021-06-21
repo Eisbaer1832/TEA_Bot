@@ -169,7 +169,6 @@ async def Musik(ctx, arg, pass_context = True):
     author = ctx.message.author
 
     channel = ctx.author.voice.channel
-    await ctx.guild.voice_client.disconnect()   
     vc = await channel.connect()
     
     voice = discord.utils.get(ctx.guild.voice_channels, name=channel.name)
