@@ -166,22 +166,24 @@ async def Musik(ctx, arg, pass_context = True):
         await ctx.send ("Du musst in einem Sprachchat sein um den Befehl zu nutzen!")
         return
     
-    author = ctx.message.author
+    if ctx.message.bot.voice == None:
+    
+        author = ctx.message.author
 
-    channel = ctx.author.voice.channel
-    vc = await channel.connect()
-    
-    voice = discord.utils.get(ctx.guild.voice_channels, name=channel.name)
-        
-    html = urllib.request.urlopen(search)
-    
-    video_ids = re.findall(r"watch\?v=(\S{11})", html.read().decode())
-    
-    embed = discord.Embed(
-        title="Es wird nun ein neues Video gespielt!", 
-        description= arg,
-        colour = discord.Colour.green()
-   )
+        channel = ctx.author.voice.channel
+        vc = await channel.connect()
+
+        voice = discord.utils.get(ctx.guild.voice_channels, name=channel.name)
+
+        html = urllib.request.urlopen(search)
+
+        video_ids = re.findall(r"watch\?v=(\S{11})", html.read().decode())
+
+        embed = discord.Embed(
+            title="Es wird nun ein neues Video gespielt!", 
+            description= arg,
+            colour = discord.Colour.green()
+       )
 
 
     await ctx.send(embed = embed)
