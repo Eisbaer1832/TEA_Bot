@@ -112,28 +112,25 @@ async def Hilfe(ctx):
 
 #Anmelden 
 @bot.command()
-async def meldan(ctx, Name, Teamname, Klasse, Schule):
+async def meldan(ctx, Name, url):
     f = open("Anmeldungen.txt", "a")
-    print("wird angemeldet")
     with open("Anmeldungen.txt", "a"):
-        f.write("Name: "+Name)
-        f.write(", Teamname: "+Teamname)
-        f.write(", Klasse: "+ Klasse)
-        f.write(", Schule: "+Schule)
+        f.write(Name)
+        f.write(url)
         f.write( "\n")
         
         await ctx.send ("Fertig :thumbsup:")
-        await ctx.send ("Du wurdes als: "+Name+", im Team: "+Teamname+", aus der Klasse: "+Klasse+", von der Schule: "+ Schule+" angemeldet!")
+        await ctx.send ("Das Lied wurde als "+Name+", mit der URL"+url+"eingefügt")
 
     f.close()
 
 
 #Anmeldungen an Admin senden
 @bot.command(pass_context = True)
-async def anmeldungen(ctx):
+async def anmeldungen(ctx):w
         await bot.get_channel(847452960740999198).send("Hier sind alle aktuellen Anmeldungen")
         await bot.get_channel(847452960740999198).send(file=discord.File(r'C:\Users\Tino Brinker\Desktop\Programmierwettbewerb Axoltlanten\Anmeldungen.txt'))
-        
+
 
 #Witz senden
 @bot.command(pass_context = True)
