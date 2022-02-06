@@ -1,4 +1,4 @@
-
+    
 from inspect import ArgInfo
 from typing import Text
 import discord
@@ -127,7 +127,7 @@ async def meldan(ctx, Name, url):
 
 #Anmeldungen an Admin senden
 @bot.command(pass_context = True)
-async def anmeldungen(ctx):w
+async def anmeldungen(ctx):
         await bot.get_channel(847452960740999198).send("Hier sind alle aktuellen Anmeldungen")
         await bot.get_channel(847452960740999198).send(file=discord.File(r'C:\Users\Tino Brinker\Desktop\Programmierwettbewerb Axoltlanten\Anmeldungen.txt'))
 
@@ -153,7 +153,7 @@ async def komm(ctx):
 
 
 
-#mUSIK MACHEN
+#play Music
 @bot.command()
 async def Musik(ctx, arg, pass_context = True):
 
@@ -197,20 +197,6 @@ async def Musik(ctx, arg, pass_context = True):
 async def stop(ctx):
     await ctx.guild.voice_client.disconnect()
 
-
-
-#Ort des Tages
-@bot.command(pass_context = True)
-async def ort(ctx):
-    for x in range (1):
-        x = random.randint(2,9)
-        y = random.randint(2,9)
-        converted_num = str(x)
-        converted_num1 = str(y)
-
-        ort = "https://www.google.de/maps/@"+converted_num+".2634574,"+converted_num1+".7837054"
-        #https://www.google.de/maps/@59.2923265,7.5175231,14z
-        await ctx.send (ort)
 bot.run("ODA2NTAxMzg1MzkwNjUzNDcw.YBqW8g.7YdmkHrZbYuQ1RsLELGsu_bjIEQ")
 
 
