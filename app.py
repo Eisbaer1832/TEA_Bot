@@ -1,4 +1,3 @@
-    
 from inspect import ArgInfo
 from typing import Text
 import discord
@@ -162,13 +161,15 @@ async def Musik(ctx, arg, pass_context = True):
     if ctx.message.author.voice == None:
         await ctx.send ("Du musst in einem Sprachchat sein um den Befehl zu nutzen!")
         return
-        
-    author = ctx.message.author
 
-    channel = ctx.author.voice.channel
-    vc = await channel.connect()
-
-    voice = discord.utils.get(ctx.guild.voice_channels, name=channel.name)
+    if not ctx.guild.voice_client in bot.voice_clients:        
+        author = ctx.message.author
+        channel = ctx.author.voice.channel
+        vc = await channel.connect()
+        voice = discord.utils.get(ctx.guild.voice_channels, name=channel.name)
+    
+    else:
+        pass
 
     html = urllib.request.urlopen(search)
 
@@ -198,10 +199,4 @@ async def stop(ctx):
     await ctx.guild.voice_client.disconnect()
 
 bot.run("ODA2NTAxMzg1MzkwNjUzNDcw.YBqW8g.7YdmkHrZbYuQ1RsLELGsu_bjIEQ")
-
-
-
-
-
-# Es wurde der Sv443s-JokeApi-Python-Wrapper verwendet. -> https://github.com/thenamesweretakenalready/Sv443s-JokeAPI-Python-Wrapper#readme-
-
+    
