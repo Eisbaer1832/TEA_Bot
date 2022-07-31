@@ -198,5 +198,5 @@ async def Musik(ctx, arg, pass_context = True):
 async def stop(ctx):
     await ctx.guild.voice_client.disconnect()
 
-bot.run("ODA2NTAxMzg1MzkwNjUzNDcw.YBqW8g.7YdmkHrZbYuQ1RsLELGsu_bjIEQ")
+bot.run("YOUR.TOKEN")
     
